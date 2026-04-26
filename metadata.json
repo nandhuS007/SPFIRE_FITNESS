@@ -1,0 +1,6 @@
+{
+  "name": "SPFIRE",
+  "description": "A production-ready fitness tracking application with real-time GPS tracking, advanced analytics, and Strava-inspired design.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": []
+}

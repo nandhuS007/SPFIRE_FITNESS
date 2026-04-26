@@ -1,0 +1,71 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user physical metrics and preferences",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "weight": { "type": "number", "description": "Weight in kg" },
+        "height": { "type": "number", "description": "Height in cm" },
+        "age": { "type": "number" },
+        "xp": { "type": "number" },
+        "level": { "type": "number" },
+        "streakCount": { "type": "number" },
+        "lastActivityDate": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "email"]
+    },
+    "Activity": {
+      "title": "Activity",
+      "description": "Recorded fitness activity",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string", "enum": ["run", "walk", "cycle"] },
+        "distance": { "type": "number", "description": "Distance in km" },
+        "duration": { "type": "number", "description": "Duration in seconds" },
+        "pace": { "type": "number", "description": "Pace in min/km" },
+        "calories": { "type": "number" },
+        "gpsCoordinates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lat": { "type": "number" },
+              "lng": { "type": "number" },
+              "time": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Achievement": {
+      "title": "Achievement",
+      "description": "User milestones and badges",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "badgeId": { "type": "string" },
+        "earnedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "UserProfile",
+      "description": "User profiles and stats"
+    },
+    "activities": {
+      "schema": "Activity",
+      "description": "User activity logs"
+    },
+    "achievements": {
+      "schema": "Achievement",
+      "description": "User earned achievements"
+    }
+  }
+}

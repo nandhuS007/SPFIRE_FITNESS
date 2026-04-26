@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Anton&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Anton", sans-serif;
+
+  --color-brand: #FC4C02; /* Strava Orange */
+  --color-brand-hover: #E34402;
+  --color-surface: #121212;
+  --color-surface-muted: #1A1A1A;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans antialiased;
+  }
+}
+
+.markdown-body {
+  @apply text-zinc-300 leading-relaxed;
+}
+
+/* Custom map styles */
+.leaflet-container {
+  @apply rounded-xl overflow-hidden grayscale brightness-90;
+}
